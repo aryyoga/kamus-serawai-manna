@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamus Serawai Manna</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+        input { width: 100%; padding: 12px; margin-bottom: 20px; border: 1px solid #ccc; border-radius: 8px; font-size: 16px; }
+        .hasil { background: #f9f9f9; padding: 15px; border-radius: 8px; border-left: 5px solid #007bff; margin-bottom: 10px; }
+        h1 { color: #333; text-align: center; }
+    </style>
+</head>
+<body>
+    <h1>Kamus Serawai Manna</h1>
+    <input type="text" id="cari" placeholder="Ketik kata yang dicari..." onkeyup="cariKata()">
+    <div id="daftar-hasil"></div>
+
+    <script>
+        // Mengambil kunci yang Anda masukkan di Vercel tadi
+        const supabaseUrl = window.location.hostname === 'localhost' ? '' : 'URL_SUPABASE_ANDA'; 
+        const supabaseKey = 'KEY_SUPABASE_ANDA'; 
+        // Catatan: Vercel akan otomatis menyuntikkan ini jika kita setting dengan benar nanti.
+        // Untuk sekarang, kita buat sistem pencarian sederhana dulu.
+        
+        async function cariKata() {
+            const keyword = document.getElementById('cari').value;
+            const container = document.getElementById('daftar-hasil');
+            
+            if (keyword.length < 2) {
+                container.innerHTML = '';
+                return;
+            }
+
+            // Ini akan memanggil data dari tabel 'kamus_kata' di Supabase
+            // Kita akan sempurnakan koneksinya setelah file ini terbuat.
+            container.innerHTML = '<p>Sedang mencari...</p>';
+        }
+    </script>
+</body>
+</html>
